@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxRating) lightboxRating.textContent = current.rating ? `Rating: ${current.rating}` : '';
     if (lightboxLog) lightboxLog.textContent = current.log;
 
+    // Every new item should start scrolled to the top of its description,
+    // not wherever the previous (possibly longer) entry left the scrollbar.
+    if (lightboxLog) lightboxLog.scrollTop = 0;
+
     // Per-item accent gradient, used by the character-card lightbox on
     // favorites.html. Harmless no-op on pages that don't set these.
     if (current.color1) lightbox.style.setProperty('--char-c1', current.color1);
